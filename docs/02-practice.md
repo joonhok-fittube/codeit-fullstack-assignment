@@ -134,7 +134,7 @@ curl -i -N http://localhost:4000/events
 
 - **2-2. `broadcast(notice)`**: `clients`에 있는 모든 연결에 `sendNotice()`를 호출해요.
 
-**🔍 중간 확인:** `curl -N http://localhost:4000/events`를 켜 둔 상태에서, 관리자 화면(http://localhost:3000/admin)의 **[예시 공지 보내기]** 를 누르세요.
+**🔍 중간 확인:** `curl -N http://localhost:4000/events`를 켜 둔 상태에서, 관리자 화면(http://localhost:3000/admin)의 <b>[예시 공지 보내기]</b>를 누르세요.
 
 - curl 화면에 `id`, `event`, `data` 세 줄과 빈 줄이 나타나면 성공이에요.
 - 터미널을 하나 더 열고 curl을 2개 켜 두면, **두 곳 모두에** 같은 공지가 나타나야 해요.
@@ -224,10 +224,10 @@ npm run check
 ### ✅ 조건 6. 끊긴 사이에 놓친 공지 이어받기 (목표 4, 5)
 
 1. 수강생 탭에서 개발자 도구 Network 탭을 열어 둬요.
-2. 관리자 화면에서 **[모든 연결 끊기 (10초 뒤 재접속)]** 를 눌러요. 수강생 화면이 **🟠 재연결 중**이 돼요.
+2. 관리자 화면에서 <b>[모든 연결 끊기 (10초 뒤 재접속)]</b>를 눌러요. 수강생 화면이 **🟠 재연결 중**이 돼요.
 3. **10초 안에** 관리자 화면에서 공지를 **2개** 보내요.
 4. 재접속되면 수강생 화면에 그 **2개가 모두** 나타나고, **마지막으로 받은 이벤트 ID**가 바뀌어요.
-5. Network 탭에 **새 `events` 요청**이 생겨요. 그 요청의 **Headers → Request Headers**에 **`Last-Event-ID`** 가 보여요.
+5. Network 탭에 **새 `events` 요청**이 생겨요. 그 요청의 **Headers → Request Headers**에 <b>`Last-Event-ID`</b>가 보여요.
 6. 서버 터미널에 `재접속 (Last-Event-ID: n) → 놓친 공지 2개 전송` 같은 로그가 찍혀요.
 
 | 연결이 끊긴 동안 | 재접속 후 |
