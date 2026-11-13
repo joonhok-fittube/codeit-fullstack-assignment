@@ -46,6 +46,32 @@ cd starter/server
 
 > 💡 서버는 `tsx watch`로 실행돼서, 코드를 저장하면 **자동으로 재시작**돼요. 공지는 메모리에 저장되니까 재시작하면 지금까지 보낸 공지가 사라지고 번호도 1번부터 다시 시작해요. 정상이에요.
 
+### 처음 실행할 때 만날 수 있는 일
+
+아래 세 가지는 실습 코드의 문제가 아니에요. 당황하지 말고 안내대로 넘어가세요.
+
+**1. `npm install` 중에 `npm warn install-scripts` 경고가 나와요**
+
+최근 npm(작성 기준 11.19)에서 `starter/server`를 설치하면 아래와 비슷한 경고가 나올 수 있어요. 운영체제에 따라 목록은 조금 다를 수 있어요.
+
+```text
+npm warn install-scripts 2 packages have install scripts not yet covered by allowScripts:
+npm warn install-scripts   esbuild@0.28.2 (postinstall: node install.js)
+npm warn install-scripts   fsevents@2.3.3 (install: (install scripts present))
+npm warn install-scripts
+npm warn install-scripts Run `npm install-scripts ls` to review, or `npm install-scripts approve <pkg>` to allow.
+```
+
+허용 목록에 없는 패키지의 설치 스크립트를 npm이 실행하지 않았다는 안내예요. 이 실습에서 서버를 실행하는 도구(`tsx`)는 이 스크립트 없이도 정상 동작하니, 따로 허용하지 않고 넘어가도 돼요.
+
+**2. 페이지를 처음 열었을 때 버튼이 반응하지 않아요**
+
+개발 서버에서는 페이지를 처음 열 때 화면(HTML)이 먼저 보이고, 버튼을 동작하게 해 주는 자바스크립트는 몇 초 늦게 준비될 수 있어요. 잠시 기다렸다가 다시 눌러 보세요.
+
+**3. 브라우저에 `Hydration failed` 에러가 떠요**
+
+React는 서버가 보낸 HTML이 자기가 그릴 화면과 같은지 확인하는데, 다르면 이 에러를 보여 줘요. 에러 메시지 아래쪽 차이 목록에 **내가 작성하지 않은 id나 `data-` 속성**(예: `__endic_crx__`, `data-wxt-integrated`)이 보인다면, 영어사전이나 번역 같은 **브라우저 확장 프로그램**이 페이지에 요소를 끼워 넣은 거예요. 기능은 그대로 동작하지만 에러 화면이 실습을 가리니, 확장 프로그램이 기본으로 꺼져 있는 **시크릿 창**에서 열어 주세요.
+
 ### 시작 코드 살펴보기
 
 ```text
